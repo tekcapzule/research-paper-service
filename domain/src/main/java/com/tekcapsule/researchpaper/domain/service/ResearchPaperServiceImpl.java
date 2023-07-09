@@ -37,6 +37,7 @@ public class ResearchPaperServiceImpl implements ResearchPaperService {
                 .tags(createCommand.getTags())
                 .imageUrl(createCommand.getImageUrl())
                 .promotion(createCommand.getPromotion())
+                .publishedOn(createCommand.getPublishedOn())
                 .status(Status.ACTIVE)
                 .build();
 
