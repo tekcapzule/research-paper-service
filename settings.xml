@@ -18,8 +18,8 @@
                     </snapshots>
                 </repository>
                 <repository>
-                    <id>course</id>
-                    <url>https://maven.pkg.github.com/tekcapsule/course-service</url>
+                    <id>research-paper</id>
+                    <url>https://maven.pkg.github.com/tekcapsule/research-paper-service</url>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
@@ -34,7 +34,7 @@
 
     <servers>
         <server>
-            <id>course</id>
+            <id>research-paper</id>
             <username>${env.SERVER_USERNAME}</username>
             <password>${env.SERVER_PASSWORD}</password>
         </server>
