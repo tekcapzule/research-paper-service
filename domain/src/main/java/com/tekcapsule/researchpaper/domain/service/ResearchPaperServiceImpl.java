@@ -63,6 +63,7 @@ public class ResearchPaperServiceImpl implements ResearchPaperService {
             researchPaper.setSummary(updateCommand.getSummary());
             researchPaper.setDescription(updateCommand.getDescription());
             researchPaper.setTags(updateCommand.getTags());
+            researchPaper.setPublishedOn(updateCommand.getPublishedOn());
             researchPaper.setPromotion(updateCommand.getPromotion());
             researchPaper.setImageUrl(updateCommand.getImageUrl());
             researchPaper.setUpdatedOn(updateCommand.getExecOn());
