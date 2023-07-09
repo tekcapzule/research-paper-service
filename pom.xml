@@ -5,7 +5,7 @@
 
     <groupId>com.tekcapsule</groupId>
     <artifactId>research-paper-application</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
     <name>Research Paper Application</name>
     <description>Research Paper Application</description>

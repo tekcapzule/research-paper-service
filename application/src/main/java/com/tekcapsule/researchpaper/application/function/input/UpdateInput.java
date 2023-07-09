@@ -1,7 +1,7 @@
 package com.tekcapsule.researchpaper.application.function.input;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.tekcapsule.researchpaper.domain.model.*;
+import com.tekcapsule.researchpaper.domain.model.Promotion;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,7 +23,6 @@ public class UpdateInput {
     private String researchPaperUrl;
     private String summary;
     private String description;
-    private List<Module> modules;
     private String imageUrl;
     private Promotion promotion;
 }
