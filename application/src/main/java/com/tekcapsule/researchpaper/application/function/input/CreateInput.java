@@ -2,7 +2,6 @@ package com.tekcapsule.researchpaper.application.function.input;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tekcapsule.researchpaper.domain.model.*;
-import com.tekcapsule.researchpaper.domain.model.Module;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,16 +13,16 @@ import java.util.List;
 public class CreateInput {
     private String title;
     private String topicCode;
-    private String author;
+    private List<String> authors;
+    private List<String> tags;
+    private int recommendations;
     private String publisher;
+    private String publishedOn;
     private String duration;
-    private String courseUrl;
+    private String researchPaperUrl;
     private String summary;
     private String description;
     private List<Module> modules;
-    private PrizingModel prizingModel;
-    private DeliveryMode deliveryMode;
-    private LearningMode learningMode;
     private String imageUrl;
     private Promotion promotion;
 }

@@ -41,7 +41,7 @@ public class CreateFunction implements Function<Message<CreateInput>, Message<Vo
 
         try {
             CreateInput createInput = createInputMessage.getPayload();
-            log.info(String.format("Entering create course Function - Module Code:%s", createInput.getTopicCode()));
+            log.info(String.format("Entering create research paper Function - Module Code:%s", createInput.getTopicCode()));
             Origin origin = HeaderUtil.buildOriginFromHeaders(createInputMessage.getHeaders());
             CreateCommand createCommand = InputOutputMapper.buildCreateCommandFromCreateInput.apply(createInput, origin);
             researchPaperService.create(createCommand);

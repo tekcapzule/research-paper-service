@@ -5,7 +5,7 @@ import com.tekcapsule.core.utils.Outcome;
 import com.tekcapsule.core.utils.Stage;
 import com.tekcapsule.researchpaper.application.config.AppConfig;
 import com.tekcapsule.researchpaper.application.function.input.GetInput;
-import com.tekcapsule.researchpaper.domain.model.Course;
+import com.tekcapsule.researchpaper.domain.model.ResearchPaper;
 import com.tekcapsule.researchpaper.domain.service.ResearchPaperService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.Message;
@@ -20,7 +20,7 @@ import java.util.function.Function;
 
 @Component
 @Slf4j
-public class GetFunction implements Function<Message<GetInput>, Message<List<Course>>> {
+public class GetFunction implements Function<Message<GetInput>, Message<List<ResearchPaper>>> {
 
     private final ResearchPaperService researchPaperService;
 
@@ -33,18 +33,18 @@ public class GetFunction implements Function<Message<GetInput>, Message<List<Cou
 
 
     @Override
-    public Message<List<Course>> apply(Message<GetInput> getInputMessage) {
+    public Message<List<ResearchPaper>> apply(Message<GetInput> getInputMessage) {
 
         Map<String, Object> responseHeaders = new HashMap<>();
-        List<Course> courses = new ArrayList<>();
+        List<ResearchPaper> cours = new ArrayList<>();
 
         String stage = appConfig.getStage().toUpperCase();
 
         try {
             GetInput getInput = getInputMessage.getPayload();
-            log.info(String.format("Entering get course Function -Module Code:%s", getInput.getTopicCode()));
-            courses = researchPaperService.findAllByTopicCode(getInput.getTopicCode());
-            if (courses.isEmpty()) {
+            log.info(String.format("Entering get research paper Function -Module Code:%s", getInput.getTopicCode()));
+            cours = researchPaperService.findAllByTopicCode(getInput.getTopicCode());
+            if (cours.isEmpty()) {
                 responseHeaders = HeaderUtil.populateResponseHeaders(responseHeaders, Stage.valueOf(stage), Outcome.NOT_FOUND);
             } else {
                 responseHeaders = HeaderUtil.populateResponseHeaders(responseHeaders, Stage.valueOf(stage), Outcome.SUCCESS);
@@ -53,6 +53,6 @@ public class GetFunction implements Function<Message<GetInput>, Message<List<Cou
             log.error(ex.getMessage());
             responseHeaders = HeaderUtil.populateResponseHeaders(responseHeaders, Stage.valueOf(stage), Outcome.ERROR);
         }
-        return new GenericMessage<>(courses, responseHeaders);
+        return new GenericMessage<>(cours, responseHeaders);
     }
 }

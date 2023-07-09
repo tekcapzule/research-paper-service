@@ -4,7 +4,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.tekcapsule.researchpaper.domain.model.Course;
+import com.tekcapsule.researchpaper.domain.model.ResearchPaper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -25,13 +25,13 @@ public class ResearchPaperRepositoryImpl implements ResearchPaperDynamoRepositor
     }
 
     @Override
-    public List<Course> findAll() {
+    public List<ResearchPaper> findAll() {
 
-        return dynamo.scan(Course.class,new DynamoDBScanExpression());
+        return dynamo.scan(ResearchPaper.class,new DynamoDBScanExpression());
     }
 
     @Override
-    public List<Course> findAllByTopicCode(String topicCode) {
+    public List<ResearchPaper> findAllByTopicCode(String topicCode) {
 
         HashMap<String, AttributeValue> expAttributes = new HashMap<>();
         expAttributes.put(":status", new AttributeValue().withS(ACTIVE_STATUS));
@@ -42,24 +42,24 @@ public class ResearchPaperRepositoryImpl implements ResearchPaperDynamoRepositor
         expNames.put("#topicCode", "topicCode");
 
 
-        DynamoDBQueryExpression<Course> queryExpression = new DynamoDBQueryExpression<Course>()
+        DynamoDBQueryExpression<ResearchPaper> queryExpression = new DynamoDBQueryExpression<ResearchPaper>()
                 .withIndexName("topicGSI").withConsistentRead(false)
                 .withKeyConditionExpression("#status = :status and #topicCode = :topicCode")
                 .withExpressionAttributeValues(expAttributes)
                 .withExpressionAttributeNames(expNames);
 
-        return dynamo.query(Course.class, queryExpression);
+        return dynamo.query(ResearchPaper.class, queryExpression);
 
     }
 
     @Override
-    public Course findBy(String code) {
-        return dynamo.load(Course.class, code);
+    public ResearchPaper findBy(String code) {
+        return dynamo.load(ResearchPaper.class, code);
     }
 
     @Override
-    public Course save(Course course) {
-        dynamo.save(course);
-        return course;
+    public ResearchPaper save(ResearchPaper researchPaper) {
+        dynamo.save(researchPaper);
+        return researchPaper;
     }
 }

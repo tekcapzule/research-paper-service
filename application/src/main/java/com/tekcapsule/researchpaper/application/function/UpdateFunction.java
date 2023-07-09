@@ -41,7 +41,7 @@ public class UpdateFunction implements Function<Message<UpdateInput>, Message<Vo
 
         try {
             UpdateInput updateInput = updateInputMessage.getPayload();
-            log.info(String.format("Entering update course Function - Module Code:%s", updateInput.getTopicCode()));
+            log.info(String.format("Entering update research paper Function - Module Code:%s", updateInput.getTopicCode()));
             Origin origin = HeaderUtil.buildOriginFromHeaders(updateInputMessage.getHeaders());
             UpdateCommand updateCommand = InputOutputMapper.buildUpdateCommandFromUpdateInput.apply(updateInput, origin);
             researchPaperService.update(updateCommand);
