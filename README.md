@@ -2,10 +2,10 @@
 <a name="readme-top"></a>
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Main Branch](https://github.com/tekcapsule/research-paper-service/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapsule/research-paper-service/actions/workflows/cicd.yml) 
-[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_course-service&metric=bugs)](https://sonarcloud.io/project/overview?id=tekcapsule_course-service)
-[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_course-service&metric=vulnerabilities)](https://sonarcloud.io/project/overview?id=tekcapsule_course-service)
-[![SonarCloud Code Smell](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_course-service&metric=code_smells)](https://sonarcloud.io/project/overview?id=tekcapsule_course-service)
-[![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_course-service&metric=ncloc)](https://sonarcloud.io/project/overview?id=tekcapsule_course-service)
+[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_research-paper-service&metric=bugs)](https://sonarcloud.io/project/overview?id=tekcapsule_research-paper-service)
+[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_research-paper-service&metric=vulnerabilities)](https://sonarcloud.io/project/overview?id=tekcapsule_research-paper-service)
+[![SonarCloud Code Smell](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_research-paper-service&metric=code_smells)](https://sonarcloud.io/project/overview?id=tekcapsule_research-paper-service)
+[![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_research-paper-service&metric=ncloc)](https://sonarcloud.io/project/overview?id=tekcapsule_research-paper-service)
 [![Github all releases](https://img.shields.io/github/downloads/tekcapsule/research-paper-service/total.svg)](https://GitHub.com/tekcapsule/research-paper-service/releases/)
 
 
