@@ -31,7 +31,7 @@ public class ResearchPaperServiceImpl implements ResearchPaperService {
                 .authors(createCommand.getAuthors())
                 .publisher(createCommand.getPublisher())
                 .recommendations(createCommand.getRecommendations())
-                .researchPaperUrl(createCommand.getResearchPaperUrl())
+                .resourceUrl(createCommand.getResourceUrl())
                 .summary(createCommand.getSummary())
                 .description(createCommand.getDescription())
                 .tags(createCommand.getTags())
@@ -59,7 +59,7 @@ public class ResearchPaperServiceImpl implements ResearchPaperService {
             researchPaper.setAuthors(updateCommand.getAuthors());
             researchPaper.setPublisher(updateCommand.getPublisher());
             researchPaper.setRecommendations(updateCommand.getRecommendations());
-            researchPaper.setResearchPaperUrl(updateCommand.getResearchPaperUrl());
+            researchPaper.setResourceUrl(updateCommand.getResourceUrl());
             researchPaper.setSummary(updateCommand.getSummary());
             researchPaper.setDescription(updateCommand.getDescription());
             researchPaper.setTags(updateCommand.getTags());

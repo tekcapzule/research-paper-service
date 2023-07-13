@@ -38,8 +38,8 @@ public class ResearchPaper extends BaseDomainEntity implements AggregateRoot {
     private String publisher;
     @DynamoDBAttribute(attributeName = "publishedOn")
     private String publishedOn;
-    @DynamoDBAttribute(attributeName = "researchPaperUrl")
-    private String researchPaperUrl;
+    @DynamoDBAttribute(attributeName = "resourceUrl")
+    private String resourceUrl;
     @DynamoDBAttribute(attributeName = "imageUrl")
     private String imageUrl;
     @DynamoDBAttribute(attributeName = "promotion")

@@ -21,7 +21,7 @@ public class UpdateCommand extends Command {
     private String publisher;
     private String publishedOn;
     private String duration;
-    private String researchPaperUrl;
+    private String resourceUrl;
     private String summary;
     private String description;
     private List<Module> modules;
