@@ -47,5 +47,6 @@ public class ResearchPaper extends BaseDomainEntity implements AggregateRoot {
     @DynamoDBAttribute(attributeName = "status")
     @DynamoDBTypeConvertedEnum
     private Status status;
+
 }
 

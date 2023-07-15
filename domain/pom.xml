@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.tekcapsule</groupId>
     <artifactId>research-paper-domain</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <name>Research Paper Domain</name>
     <description>Research Paper Domain</description>
     <properties>

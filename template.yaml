@@ -61,6 +61,8 @@ Resources:
           AttributeType: S
         - AttributeName: status
           AttributeType: S
+        - AttributeName: recommendations
+          AttributeType: N
       KeySchema:
         - AttributeName: researchPaperId
           KeyType: HASH
@@ -73,6 +75,18 @@ Resources:
             - AttributeName: status
               KeyType: HASH
             - AttributeName: topicCode
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+
+        - IndexName: trendingGSI
+          KeySchema:
+            - AttributeName: status
+              KeyType: HASH
+            - AttributeName: recommendations
               KeyType: RANGE
           Projection:
             ProjectionType: ALL
@@ -162,6 +176,27 @@ Resources:
           Type: Api
           Properties:
             Path: research-paper/getAll
+            Method: post
+            RestApiId:
+              Ref: ResearchPaperApi
+
+  RecommendResearchPaperFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${Stage}-ResearchPaper-RecommendResearchPaper"
+      SnapStart:
+        ApplyOn: PublishedVersions
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ResearchPaperTable
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: recommendFunction
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: research-paper/recommend
             Method: post
             RestApiId:
               Ref: ResearchPaperApi
