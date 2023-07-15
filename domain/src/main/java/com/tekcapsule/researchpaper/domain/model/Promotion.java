@@ -15,4 +15,6 @@ public class Promotion {
     private String endsOnUtc;
     private String imageUrl;
     private String campaignUrl;
+
+
 }

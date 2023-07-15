@@ -1,6 +1,7 @@
 package com.tekcapsule.researchpaper.domain.service;
 
 import com.tekcapsule.researchpaper.domain.command.CreateCommand;
+import com.tekcapsule.researchpaper.domain.command.RecommendCommand;
 import com.tekcapsule.researchpaper.domain.command.UpdateCommand;
 import com.tekcapsule.researchpaper.domain.model.ResearchPaper;
 import com.tekcapsule.researchpaper.domain.model.Status;
@@ -86,6 +87,23 @@ public class ResearchPaperServiceImpl implements ResearchPaperService {
         log.info(String.format("Entering findAllByTopicCode ResearchPaper service - Module code:%s", topicCode));
 
         return researchPaperDynamoRepository.findAllByTopicCode(topicCode);
+    }
+
+    @Override
+    public void recommend(RecommendCommand recommendCommand) {
+        log.info(String.format("Entering recommend researchpaper service -  researchpaper Id:%s", recommendCommand.getResearchPaperId()));
+
+        ResearchPaper researchPaper = researchPaperDynamoRepository.findBy(recommendCommand.getResearchPaperId());
+        if (researchPaper != null) {
+            Integer recommendationsCount = researchPaper.getRecommendations();
+            recommendationsCount += 1;
+            researchPaper.setRecommendations(recommendationsCount);
+
+            researchPaper.setUpdatedOn(recommendCommand.getExecOn());
+            researchPaper.setUpdatedBy(recommendCommand.getExecBy().getUserId());
+
+            researchPaperDynamoRepository.save(researchPaper);
+        }
     }
 
 

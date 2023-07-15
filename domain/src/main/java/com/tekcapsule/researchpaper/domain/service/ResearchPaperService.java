@@ -1,6 +1,7 @@
 package com.tekcapsule.researchpaper.domain.service;
 
 import com.tekcapsule.researchpaper.domain.command.CreateCommand;
+import com.tekcapsule.researchpaper.domain.command.RecommendCommand;
 import com.tekcapsule.researchpaper.domain.command.UpdateCommand;
 import com.tekcapsule.researchpaper.domain.model.ResearchPaper;
 
@@ -16,4 +17,6 @@ public interface ResearchPaperService {
     List<ResearchPaper> findAll();
 
     List<ResearchPaper> findAllByTopicCode(String code);
+    void recommend(RecommendCommand recommendCommand);
+
 }
