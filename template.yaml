@@ -201,6 +201,27 @@ Resources:
             RestApiId:
               Ref: ResearchPaperApi
 
+  ApproveResearchPaperFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${Stage}-ResearchPaper-ApproveResearchPaper"
+      SnapStart:
+        ApplyOn: PublishedVersions
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ResearchPaperTable
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: approveFunction
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: research-paper/approve
+            Method: post
+            RestApiId:
+              Ref: ResearchPaperApi
+
   # Set Output Variable
 
 Outputs:
