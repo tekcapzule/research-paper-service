@@ -1,5 +1,6 @@
 package com.tekcapsule.researchpaper.domain.service;
 
+import com.tekcapsule.researchpaper.domain.command.ApproveCommand;
 import com.tekcapsule.researchpaper.domain.command.CreateCommand;
 import com.tekcapsule.researchpaper.domain.command.RecommendCommand;
 import com.tekcapsule.researchpaper.domain.command.UpdateCommand;
@@ -101,6 +102,21 @@ public class ResearchPaperServiceImpl implements ResearchPaperService {
 
             researchPaper.setUpdatedOn(recommendCommand.getExecOn());
             researchPaper.setUpdatedBy(recommendCommand.getExecBy().getUserId());
+
+            researchPaperDynamoRepository.save(researchPaper);
+        }
+    }
+
+    @Override
+    public void approve(ApproveCommand approveCommand) {
+        log.info(String.format("Entering approve researchpaper service -  ResearchPaper Id:%s", approveCommand.getResearchPaperId()));
+
+        ResearchPaper researchPaper = researchPaperDynamoRepository.findBy(approveCommand.getResearchPaperId());
+        if (researchPaper != null) {
+            researchPaper.setStatus(Status.ACTIVE);
+
+            researchPaper.setUpdatedOn(approveCommand.getExecOn());
+            researchPaper.setUpdatedBy(approveCommand.getExecBy().getUserId());
 
             researchPaperDynamoRepository.save(researchPaper);
         }
