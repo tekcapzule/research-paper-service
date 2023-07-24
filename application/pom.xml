@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.tekcapsule</groupId>
     <artifactId>research-paper-service</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <name>Research Paper Service</name>
     <description>Research Paper Service</description>
     <properties>
@@ -54,7 +54,7 @@
         <dependency>
             <groupId>com.tekcapsule</groupId>
             <artifactId>research-paper-domain</artifactId>
-            <version>1.0.5</version>
+            <version>1.0.6</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
