@@ -40,7 +40,7 @@ public class ResearchPaperServiceImpl implements ResearchPaperService {
                 .imageUrl(createCommand.getImageUrl())
                 .promotion(createCommand.getPromotion())
                 .publishedOn(createCommand.getPublishedOn())
-                .status(Status.ACTIVE)
+                .status(Status.SUBMITTED)
                 .build();
 
         researchPaper.setAddedOn(createCommand.getExecOn());
