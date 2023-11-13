@@ -27,7 +27,7 @@ Globals:
         TABLE: !Ref ResearchPaperTable
         APPLICATION_ENVIRONMENT: !Ref Stage
         CLOUD_REGION: us-east-1
-        MAIN_CLASS: com.tekcapsule.researchpaper.application.ResearchPaperApplication
+        MAIN_CLASS: com.tekcapzule.researchpaper.application.ResearchPaperApplication
         JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
 
 Resources:

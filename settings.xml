@@ -12,14 +12,14 @@
             <repositories>
                 <repository>
                     <id>core</id>
-                    <url>https://maven.pkg.github.com/tekcapsule/tekcapsule-core</url>
+                    <url>https://maven.pkg.github.com/tekcapzule/tekcapzule-core</url>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
                 </repository>
                 <repository>
                     <id>research-paper</id>
-                    <url>https://maven.pkg.github.com/tekcapsule/research-paper-service</url>
+                    <url>https://maven.pkg.github.com/tekcapzule/research-paper-service</url>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
